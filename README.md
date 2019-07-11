@@ -56,7 +56,7 @@
       
       启动nginx容器
       ```
-      docker run -d -p 8080:80 --name nginx-web -v /docker-php/nginx/www/:/usr/share/nginx/html -v /docker-      php/nginx/conf/nginx.conf/:/etc/nginx/nginx.conf -v /docker-php/nginx/logs/:/var/log/nginx --privileged=true docker.io/nginx
+      docker run -d -p 8080:80 --name nginx-web -v /docker-php/nginx/www/:/usr/share/nginx/html -v /docker-php/nginx/conf/nginx.conf/:/etc/nginx/nginx.conf -v /docker-php/nginx/logs/:/var/log/nginx --privileged=true docker.io/nginx
       ```
       
      
