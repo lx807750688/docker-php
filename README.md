@@ -1,7 +1,7 @@
 ## 安装
-1. docker安装
-yum install -y docker  //配置好yum源可以选择阿里云yum源
-2. 测试docker是否成功安装并且运行docker
+  1. docker安装
+  yum install -y docker  //配置好yum源可以选择阿里云yum源
+  2. 测试docker是否成功安装并且运行docker
 
    测试docker version 
    ```
@@ -15,7 +15,7 @@ yum install -y docker  //配置好yum源可以选择阿里云yum源
     OS/Arch:         linux/amd64
     Experimental:    false
    ```
-3. 下拉镜像   
+## 下拉镜像   
    运行systemctl start docker 成功后分别下拉nginx镜像php-fpm镜像和mysql镜像
    
    docker pull nginx
@@ -33,3 +33,5 @@ yum install -y docker  //配置好yum源可以选择阿里云yum源
    docker.io/nginx     latest              f68d6e55e065        9 days ago          109 MB
    docker.io/mysql     latest              c7109f74d339        4 weeks ago         443 MB
    ```
+## 部署php环境
+  1. 部署nginx 
