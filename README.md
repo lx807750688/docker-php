@@ -20,7 +20,16 @@ yum install -y docker  //配置好yum源可以选择阿里云yum源
    
    docker pull nginx
    
-   docker pull php-fpm
+   docker pull php:7.3-fpm
    
    docker pull mysql
    
+   查看镜像docker镜像 docker images
+   
+   ```
+   [root@localhost nginx]# docker images
+   REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+   docker.io/php       7.3-fpm             ff76bea6e276        35 hours ago        371 MB
+   docker.io/nginx     latest              f68d6e55e065        9 days ago          109 MB
+   docker.io/mysql     latest              c7109f74d339        4 weeks ago         443 MB
+   ```
