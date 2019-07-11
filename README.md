@@ -4,7 +4,7 @@
   2. 测试docker是否成功安装并且运行docker
 
     测试docker version 
-     ```
+  
      Server:
       Version:         1.13.1
       API version:     1.26 (minimum version 1.12)
@@ -14,7 +14,8 @@
       Built:           Wed May  1 14:55:20 2019
       OS/Arch:         linux/amd64
       Experimental:    false
-     ```
+    
+     
 ## 下拉镜像   
      运行systemctl start docker 成功后分别下拉nginx镜像php-fpm镜像和mysql镜像
 
