@@ -3,7 +3,7 @@
 yum install -y docker  //配置好yum源可以选择阿里云yum源
 2. 测试docker是否成功安装并且运行docker
 
-   docker version 
+   测试docker version 
    ```
    Server:
     Version:         1.13.1
@@ -14,4 +14,9 @@ yum install -y docker  //配置好yum源可以选择阿里云yum源
     Built:           Wed May  1 14:55:20 2019
     OS/Arch:         linux/amd64
     Experimental:    false
- ```
+   ```
+   运行systemctl start docker 成功后分别下拉nginx镜像php-fpm镜像和mysql镜像
+   docker pull nginx
+   docker pull php-fpm
+   docker pull mysql
+   
