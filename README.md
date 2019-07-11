@@ -15,8 +15,12 @@ yum install -y docker  //配置好yum源可以选择阿里云yum源
     OS/Arch:         linux/amd64
     Experimental:    false
    ```
+3. 下拉镜像   
    运行systemctl start docker 成功后分别下拉nginx镜像php-fpm镜像和mysql镜像
+   
    docker pull nginx
+   
    docker pull php-fpm
+   
    docker pull mysql
    
