@@ -49,7 +49,7 @@
 ## 部署php环境
    1. 部署nginx
    
-   创建nginx所需的文件夹
+      创建nginx所需的文件夹
       ```
        mkdir -p /docker-php/nginx/www /docker-php/nginx/logs /docker-php/nginx/conf
       ```
