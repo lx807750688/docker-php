@@ -49,7 +49,17 @@
 ## 部署php环境
    1. 部署nginx
    
-      创建nginx所需的文件夹
+      创建nginx所需的映射文件夹
       ```
-       mkdir -p /docker-php/nginx/www /docker-php/nginx/logs /docker-php/nginx/conf
+       mkdir -p /docker-php/nginx/www /docker-php/nginx/logs /docker-php/nginx/conf/nginx.conf
       ```
+      
+      启动nginx容器
+      ```
+      docker run -d -p 8080:80 --name nginx-web -v /docker-php/nginx/www/:/usr/share/nginx/html -v /docker-      php/nginx/conf/nginx.conf/:/etc/nginx/nginx.conf -v /docker-php/nginx/logs/:/var/log/nginx --privileged=true docker.io/nginx
+      ```
+      
+     
+      
+      
+      
