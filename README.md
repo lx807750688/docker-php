@@ -67,6 +67,56 @@
           -v /docker-php/nginx/www/:/usr/share/nginx/html：将我们自己创建的 www 目录挂载到容器的 /usr/share/nginx/html。
 
           --privileged=true 给容器加上执行权限
+      4. 写一个基本的nginx.conf
+          ```
+          user  nginx;
+          worker_processes  1;
+          error_log  /var/log/nginx/error.log warn;
+          pid        /var/run/nginx.pid;
+          events {
+              worker_connections  1024;
+          }
+           http {
+              include       /etc/nginx/mime.types;
+              default_type  application/octet-stream;
+
+              log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                                '$status $body_bytes_sent "$http_referer" '
+                                '"$http_user_agent" "$http_x_forwarded_for"';
+              access_log  /var/log/nginx/access.log  main;
+              sendfile        on;
+              #tcp_nopush     on;
+              keepalive_timeout  65;
+              #gzip  on;
+              include /etc/nginx/conf.d/*.conf;
+            }
+            ```
+      5. 在/docker-php/nginx/www/目录下新建一个基本的index.html页面
+         ```
+          <!DOCTYPE html>
+          <html>
+          <head>
+          <meta charset="utf-8">
+          <title>test</title>
+          </head>
+          <body>
+              <h1>TEST</h1>
+          </body>
+          </html>
+         ```
+      6. 测试能否运行成功
+         ```
+          [root@localhost www]# curl 127.0.0.1:8080
+          <!DOCTYPE html>
+          <html>
+          <head>
+          <meta charset="utf-8">
+          <title>test</title>
+          </head>
+          <body>
+              <h1>TEST</h1>
+          </body>
+          </html>
+         ```
       
-      
-      
+        
