@@ -132,12 +132,13 @@
          
    **2. 部署php-fpm容器**
 
-   -启动容器
+   - 启动容器
    
     ```
     docker run -d  -p 9000:9000 --name php-fpm -v /docker-php/nginx/www:/www --privileged=true docker.io/php:7.2-fpm  
     ```   
-  -添加php-fpm容器和nginx容器映射
+    
+   - 添加php-fpm容器和nginx容器映射
     
    先查看俩个容器的ip地址之后利用 echo 'IP+容器id' >> /etc/hoots
     
@@ -146,7 +147,7 @@
     echo "172.17.0.3 72433982d5c3" >> /etc/hosts 
     ```
     
-  -在nginx配置文件中添加
+  - 在nginx配置文件中添加
    
      ```
      server {
