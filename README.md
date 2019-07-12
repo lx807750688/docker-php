@@ -1,9 +1,9 @@
 ## 安装
 
-  1. docker安装
+  **1. docker安装**
      yum install -y docker  //配置好yum源可以选择阿里云yum源
   
-  2. 测试docker是否安装成功
+  **2. 测试docker是否安装成功**
      ```
      [root@localhost nginx]# docker version
       Client:
@@ -28,17 +28,21 @@
      
 ## 下拉镜像
 
-   1. 运行docker
+   **1. 运行docker**
+   
       ```
       systemctl start docker
-      ``` 
-   2. 下拉php环境的docker镜像
+      ```
+      
+   **2. 下拉php环境的docker镜像**
+   
       ```
       docker pull nginx
       docker pull php:7.3-fpm
       docker pull mysql
       ``` 
-   3. 查看镜像docker镜像
+      
+   **3. 查看镜像docker镜像**
        ```
        [root@localhost nginx]# docker images
        REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
