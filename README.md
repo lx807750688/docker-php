@@ -183,8 +183,13 @@
       echo phpinfo();
       ?>
       ```
-   -访问index.php
-   
+   - 访问index.php
+     ```
+     [root@localhost nginx]# curl  127.0.0.1:8080/index.php
+     出现大量html代码成功
+     ```
+     
+     
    
     
     
