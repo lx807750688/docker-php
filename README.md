@@ -60,13 +60,13 @@
       ```
       3. 命令说明
       
-      -p 8080:80： 将容器的 80 端口映射到主机的 8080 端口
-      
-      --name nginx-web ：将容器命名为 nginx-web 
-      
-      -v /docker-php/nginx/www/:/usr/share/nginx/html：将我们自己创建的 www 目录挂载到容器的 /usr/share/nginx/html。
-     
-      --privileged=true 给容器加上执行权限
+        -p 8080:80： 将容器的 80 端口映射到主机的 8080 端口
+
+        --name nginx-web ：将容器命名为 nginx-web 
+
+        -v /docker-php/nginx/www/:/usr/share/nginx/html：将我们自己创建的 www 目录挂载到容器的 /usr/share/nginx/html。
+
+        --privileged=true 给容器加上执行权限
       
       
       
