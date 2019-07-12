@@ -145,31 +145,33 @@
     docker inspect 72433982d5c3 |grep IPAddress
     echo "172.17.0.3 72433982d5c3" >> /etc/hosts 
     ```
+    
    -在nginx配置文件中添加
-    ```
-    server {
-    listen       80;
-    server_name  localhost;
-    root   /usr/share/nginx/html;
-    index  index.html index.htm index.php;
+   
+     ```
+     server {
+     listen       80;
+     server_name  localhost;
+     root   /usr/share/nginx/html;
+     index  index.html index.htm index.php;
 
-    location / {
-        root   /usr/share/nginx/html;
-        index  index.html index.htm index.php;
-    }
+     location / {
+         root   /usr/share/nginx/html;
+         index  index.html index.htm index.php;
+     }
 
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   /usr/share/nginx/html;
-    }
+     error_page   500 502 503 504  /50x.html;
+     location = /50x.html {
+         root   /usr/share/nginx/html;
+     }
 
-    location ~ \.php$ {
-        fastcgi_pass   172.17.0.3:9000; //为php-fpm容器的IP地址
-        fastcgi_index  index.php;
-        fastcgi_param  SCRIPT_FILENAME  /www/$fastcgi_script_name;
-        include        fastcgi_params;
-    }
-   }
+     location ~ \.php$ {
+         fastcgi_pass   172.17.0.3:9000; //为php-fpm容器的IP地址
+         fastcgi_index  index.php;
+         fastcgi_param  SCRIPT_FILENAME  /www/$fastcgi_script_name;
+         include        fastcgi_params;
+     }
+     }
     ```
     
     
