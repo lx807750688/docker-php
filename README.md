@@ -37,7 +37,7 @@
    
       docker pull nginx
       docker pull php:7.2-fpm
-      docker pull mysql
+      docker pull mysql:5.7
       
    **3. 查看镜像docker镜像**
    
@@ -188,8 +188,8 @@
      [root@localhost nginx]# curl  127.0.0.1:8080/index.php
      出现大量html代码成功
      ```
-     
-     
+  **3. 部署mysql容器**
+  
    
     
     
