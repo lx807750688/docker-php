@@ -188,9 +188,14 @@
      [root@localhost nginx]# curl  127.0.0.1:8080/index.php
      出现大量html代码成功
      ```
-  **3. 部署mysql容器**
-  
-   
-    
+   **3. 部署mysql容器**
+   - 在docker-php目录下新建mysql日志文件配置文件和数据文件
+     ```
+     mkdir -p  mysql/logs mysql/data mysql/conf
+     ```
+   - 运行mysql容器
+     ```
+     docker run -p 3307:3306 --name mysql -v /docker-php/mysql/conf:/etc/mysql/conf.d -v /docker-php/mysql/logs:/logs -v /docker-php/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=000000 -d --privileged=true  docker.io/mysql:5.7
+     ```
     
         
