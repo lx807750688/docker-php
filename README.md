@@ -49,16 +49,16 @@
 ## 部署php环境
    1. 部署nginx
    
-      1. 创建nginx所需的映射文件夹
+      - 创建nginx所需的映射文件夹
           ```
            mkdir -p /docker-php/nginx/www /docker-php/nginx/logs /docker-php/nginx/conf/nginx.conf
           ```
       
-      2. 启动nginx容器
+      - 启动nginx容器
           ```
           docker run -d -p 8080:80 --name nginx-web -v /docker-php/nginx/www/:/usr/share/nginx/html -v /docker-php/nginx/conf/nginx.conf/:/etc/nginx/nginx.conf -v /docker-php/nginx/logs/:/var/log/nginx --privileged=true docker.io/nginx
           ```
-      3. 命令说明
+      - 命令说明
       
           -p 8080:80： 将容器的 80 端口映射到主机的 8080 端口
 
@@ -67,7 +67,7 @@
           -v /docker-php/nginx/www/:/usr/share/nginx/html：将我们自己创建的 www 目录挂载到容器的 /usr/share/nginx/html。
 
           --privileged=true 给容器加上执行权限
-      4. 写一个基本的nginx.conf
+      - 写一个基本的nginx.conf
           ```
           user  nginx;
           worker_processes  1;
@@ -91,7 +91,7 @@
               include /etc/nginx/conf.d/*.conf;
             }
             ```
-      5. 在/docker-php/nginx/www/目录下新建一个基本的index.html页面
+      - 在/docker-php/nginx/www/目录下新建一个基本的index.html页面
          ```
           <!DOCTYPE html>
           <html>
@@ -104,7 +104,7 @@
           </body>
           </html>
          ```
-      6. 测试能否运行成功
+      - 测试能否运行成功
          ```
           [root@localhost www]# curl 127.0.0.1:8080
           <!DOCTYPE html>
