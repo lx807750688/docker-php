@@ -175,6 +175,17 @@
      }
     ```
     
+   - 重启nginx容器并新建/docker-php/nginx/www/index.php
+      
+      ```
+      [root@localhost nginx]# cat /docker-php/nginx/www/index.php 
+      <?php
+      echo phpinfo();
+      ?>
+      ```
+   -访问index.php
+   
+   
     
     
         
