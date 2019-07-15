@@ -197,5 +197,19 @@
      ```
      docker run -p 3307:3306 --name mysql -v /docker-php/mysql/conf:/etc/mysql/conf.d -v /docker-php/mysql/logs:/logs -v /docker-php/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=000000 -d --privileged=true  docker.io/mysql:5.7
      ```
-    
+       - 新建index.php测试能否连通数据库
+     ```
+     先进入mysql容器创建测试数据库 test
+     [root@localhost docker-php]# vi nginx/www/index.php
+     <?php
+     //die(phpinfo());
+     $mysqli = mysqli_connect('172.17.0.4','root','000000','test');
+     $conn = new PDO('mysql:host=172.17.0.4;dbname=test;port=3306','root','000000');
+     var_dump($conn,$mysqli);
+     ?>
+     ```
+   - 测试成功
+     ```
+     object(PDO)#2 (0) { } object(mysqli)#1 (19) { ["affected_rows"]=> int(0) ["client_info"]=> string(79) "mysqlnd 5.0.12-dev - 20150407 - $Id: 3591daad22de08524295e1bd073aceeff11e6579 $" ["client_version"]=> int(50012) ["connect_errno"]=> int(0) ["connect_error"]=> NULL ["errno"]=> int(0) ["error"]=> string(0) "" ["error_list"]=> array(0) { } ["field_count"]=> int(0) ["host_info"]=> string(21) "172.17.0.2 via TCP/IP" ["info"]=> NULL ["insert_id"]=> int(0) ["server_info"]=> string(6) "5.7.26" ["server_version"]=> int(50726) ["stat"]=> string(132) "Uptime: 2512 Threads: 2 Questions: 4 Slow queries: 0 Opens: 105 Flush tables: 1 Open tables: 98 Queries per second avg: 0.001" ["sqlstate"]=> string(5) "00000" ["protocol_version"]=> int(10) ["thread_id"]=> int(3) ["warning_count"]=> int(0) }
+     ```
         
