@@ -54,7 +54,7 @@
    
       ```  
       mkdir -p /docker-php/nginx/www /docker-php/nginx/logs /docker-php/nginx/conf/nginx.conf
-      ```   
+      ```      
       
    - 启动nginx容器
    
@@ -138,14 +138,15 @@
       docker run -d  -p 9000:9000 --name php-fpm -v /docker-php/nginx/www:/www --privileged=true docker.io/php:7.2-fpm  
       ```   
     
-   - 添加php-fpm容器和nginx容器映射
-    
-     先查看俩个容器的ip地址之后利用 echo 'IP+容器id' >> /etc/hoots
-    
-      ```
-      docker inspect 72433982d5c3 |grep IPAddress
-      echo "172.17.0.3 72433982d5c3" >> /etc/hosts 
-      ```
+   - 查看php-fpm的扩展情况缺少可以直接进入容器安装
+   
+     ```
+     docker exec -it 484b8c4a3203 /bin/bash
+     cd  /usr/local/bin/
+     ./docker-php-ext-install pdo_mysql
+     ./docker-php-ext-install mysqli
+     ```
+  
     
   - 在nginx配置文件中添加
    
@@ -197,7 +198,7 @@
      ```
      docker run -p 3307:3306 --name mysql -v /docker-php/mysql/conf:/etc/mysql/conf.d -v /docker-php/mysql/logs:/logs -v /docker-php/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=000000 -d --privileged=true  docker.io/mysql:5.7
      ```
-       - 新建index.php测试能否连通数据库
+   - 新建index.php测试能否连通数据库
      ```
      先进入mysql容器创建测试数据库 test
      [root@localhost docker-php]# vi nginx/www/index.php
